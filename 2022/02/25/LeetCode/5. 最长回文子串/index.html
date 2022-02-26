@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="dogecheng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;longest-palindromic-substring&#x2F;  给你一个字符串 s，找到 s 中最长的回文子串。 示例 1： 123输入：s &#x3D; &quot;babad&quot;输出：&quot;bab&quot;解释：&quot;aba&quot; 同样是符合题意的答案。 示例 2： 12输入：s &#x3D; &quot;c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5. 最长回文子串">
+<meta property="og:url" content="http://example.com/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;longest-palindromic-substring&#x2F;  给你一个字符串 s，找到 s 中最长的回文子串。 示例 1： 123输入：s &#x3D; &quot;babad&quot;输出：&quot;bab&quot;解释：&quot;aba&quot; 同样是符合题意的答案。 示例 2： 12输入：s &#x3D; &quot;c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/index_img/code%20development.png">
+<meta property="article:published_time" content="2022-02-25T15:00:37.000Z">
+<meta property="article:modified_time" content="2022-02-26T03:55:54.533Z">
+<meta property="article:author" content="dogecheng">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="数组">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="动态规划">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/index_img/code%20development.png">
+  
+  
+  <title>5. 最长回文子串 - My Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/vs.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>My Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/banner_img/pink_hardwood.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="5. 最长回文子串">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-25 23:00" pubdate>
+        2022年2月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">5. 最长回文子串</h1>
+            
+            <div class="markdown-body">
+              <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p>
+</blockquote>
+<p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight nix"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">s</span> = <span class="hljs-string">&quot;babad&quot;</span><br>输出：<span class="hljs-string">&quot;bab&quot;</span><br>解释：<span class="hljs-string">&quot;aba&quot;</span> 同样是符合题意的答案。<br></code></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">s</span> = <span class="hljs-string">&quot;cbbd&quot;</span><br>输出：<span class="hljs-string">&quot;bb&quot;</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smalltalk">输入：s = <span class="hljs-comment">&quot;a&quot;</span><br>输出：<span class="hljs-comment">&quot;a&quot;</span><br></code></pre></td></tr></table></figure>
+<p><strong>示例 4：</strong></p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nix">输入：<span class="hljs-attr">s</span> = <span class="hljs-string">&quot;ac&quot;</span><br>输出：<span class="hljs-string">&quot;a&quot;</span><br></code></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> 仅由数字和英文字母（大写和/或小写）组成</li>
+</ul>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>如果字符串 <code>s</code> 是回文串，并且长度大于等于 3，那么字符串 <code>s</code> 去除首尾两个字符的子串也是回文串</p>
+<blockquote>
+<p>长度为 1 的字符串一定是回文串</p>
+</blockquote>
+<p>以 <code>&quot;ababa&quot;</code> 为例<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
+">[1]</span></a></sup>，如果已知 <code>&quot;bab&quot;</code> 是字符串是回文串，因为 <code>&quot;ababa&quot;</code> 首尾是相同字符 <code>&quot;a&quot;</code>，那么 <code>&quot;ababa&quot;</code> 也是回文串。</p>
+<p>设 $P(i, j)$ 表示 <code>s</code> 的子串 <code>s[i, j]</code> 是否为回文串，即</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+  P(i,j) =  
+  \begin{cases}
+    True  , & \text{如果} s[i, j] 是回文串; \\
+    False , & \text{其他情况}.
+  \end{cases}
+\end{equation}</script><blockquote>
+<p><code>s[i, j]</code> 表示 <code>s</code> 的第 <code>i</code> 到第 <code>j</code> 个字符组成的字符串，可取到右边界</p>
+</blockquote>
+<p>其他情况包括以下两种可能性：</p>
+<ol>
+<li><code>s[i, j]</code> 不是回文串；</li>
+<li><code>i&gt;j</code> 。</li>
+</ol>
+<p>根据上述的公式，可得动态规划的状态转移方程：</p>
+<script type="math/tex; mode=display">
+P(i,j) = P(i+1,j-1) ∧ (s[i]==s[j])</script><blockquote>
+<p>即：子串为回文串 <strong>且</strong> 当前字符串的首尾字符相同</p>
+</blockquote>
+<p>初始状态：</p>
+<ol>
+<li>字符串长度为 1，一定是回文串，即 $P(i,i)=True$；</li>
+<li>字符串长度为 2，如果字符相同则为回文串，即 $P(i,i+1)=(s[i]==s[j])$ 。</li>
+</ol>
+<p>我们用图片来展示动态规划的流程：</p>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-01.svg" srcset="/img/loading.gif" lazyload alt="图1 字符串s和动态规划矩阵dp"></p>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-02.svg" srcset="/img/loading.gif" lazyload alt="图2 初始化dp"></p>
+<blockquote>
+<p>初始化 dp，首先 <code>dp[i][i]=True</code>，表示字符串长度为 1 的一定是回文子串，如果 <code>s[i]==s[i+1]</code>，则 <code>dp[i][i+1]=True</code>，否则 <code>dp[i][i+1]=False</code>。在初始化的过程中，记录最长回文子串的起始位置和对应的长度。</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-03.svg" srcset="/img/loading.gif" lazyload alt="图3 遍历长度为3的子串"></p>
+<blockquote>
+<p>初始化时把长度为 1 和长度为 2 的子串遍历完了，下面直接从长度为 3 的子串开始遍历。</p>
+<p>首先是 <code>s[0, 2]</code>，因为 <code>s[1, 1]^(s[i]==s[j]) = True</code>，此时更新最长回文子串的起始位置为 0，长度为 3。</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-04.svg" srcset="/img/loading.gif" lazyload alt="图4 继续遍历长度为3的子串"></p>
+<blockquote>
+<p>遍历下一个长度为 3 的子串中，此时的子串为 <code>s[1, 3]</code>，有 <code>s[2, 2]^(s[1]==s[3]) = True</code>，这个回文子串没有大于 3，可以不用更新最长回文子串。</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-05.svg" srcset="/img/loading.gif" lazyload alt="图5 全部子串遍历完成"></p>
+<blockquote>
+<p>全部子串（包括长度大于3的子串）遍历完成后得到的上图结果，返回最长回文子串即可。</p>
+</blockquote>
+<p>根据上述过程，实现的 python 代码如下</p>
+<ul>
+<li>时间复杂度：$O(N^2)$</li>
+<li>空间复杂度：$O(N^2)$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longestPalindrome</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:</span><br>        n = <span class="hljs-built_in">len</span>(s)<br>        <span class="hljs-keyword">if</span> n&lt;=<span class="hljs-number">1</span>:                  <span class="hljs-comment"># 长度为1，一定是回文串</span><br>            <span class="hljs-keyword">return</span> s<br>        dp = [ [<span class="hljs-literal">False</span>]*n <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br>        max_len = <span class="hljs-number">1</span>               <span class="hljs-comment"># 最长回文子串长度</span><br>        start = <span class="hljs-number">0</span>                 <span class="hljs-comment"># 最长回文子串长度起始位置</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):        <span class="hljs-comment"># 初始化</span><br>            dp[i][i] = <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">if</span> i&lt;n-<span class="hljs-number">1</span> <span class="hljs-keyword">and</span> (s[i]==s[i+<span class="hljs-number">1</span>]):<br>                dp[i][i+<span class="hljs-number">1</span>] = <span class="hljs-literal">True</span><br>                max_len = <span class="hljs-number">2</span><br>                start = i<br>        <span class="hljs-keyword">for</span> L <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, n+<span class="hljs-number">1</span>):   <span class="hljs-comment"># 子串长度</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):    <span class="hljs-comment"># 起始位置</span><br>                j = L + i - <span class="hljs-number">1</span>     <span class="hljs-comment"># 终止位置，取决于子串长度和起始位置</span><br>                <span class="hljs-keyword">if</span> j&gt;=n:          <span class="hljs-comment"># 终止位置索引越界</span><br>                    <span class="hljs-keyword">break</span><br>                dp[i][j] = dp[i+<span class="hljs-number">1</span>][j-<span class="hljs-number">1</span>] <span class="hljs-keyword">and</span> (s[i]==s[j])<br>                <span class="hljs-keyword">if</span> dp[i][j] <span class="hljs-keyword">and</span> (j-i+<span class="hljs-number">1</span>)&gt;max_len:<br>                    max_len = j - i + <span class="hljs-number">1</span><br>                    start = i<br>        <span class="hljs-keyword">return</span> s[start: start+max_len]<br></code></pre></td></tr></table></figure>
+<h2 id="中心扩展"><a href="#中心扩展" class="headerlink" title="中心扩展"></a>中心扩展</h2><p>观察状态转移方程</p>
+<script type="math/tex; mode=display">
+\begin{equation} 
+  \begin{cases}
+    P(i,i)   &= true                          \\
+    P(i,i+1) &= (S_{i}==S_{i+1})              \\
+    P(i,j)   &= P(i+1,j-1) ∧ (S_{i}==S_{i+1})
+  \end{cases}
+\end{equation}</script><p>找出其中的状态转移链</p>
+<script type="math/tex; mode=display">
+P(i,j) ← P(i+1,j-1) ← P(i+2,j-2) ← \cdots ← 某一边界情况</script><p>可以发现，所有状态在转移的时候可能性都是唯一的<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
+">[1]</span></a></sup>，如果我们从每一种边界情况开始扩展，就可以得到所有状态对应的答案。</p>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-06.svg" srcset="/img/loading.gif" lazyload alt="图6 边界子串长度为1"></p>
+<blockquote>
+<p>边界子串长度为 1 的情况</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-07.svg" srcset="/img/loading.gif" lazyload alt="图7 边界子串长度为2"></p>
+<blockquote>
+<p>子串长度为 2 的边界情况</p>
+</blockquote>
+<p>边界即子串长度为 1 或 2，如果两边的字母相同，我们就可以继续扩展，从 $P(i+1,j-1)$ 扩展到 $P(i,j)$，如果两边的字母不同，说明这之后的子串都不是回文串，停止扩展。实现的 python 代码如下</p>
+<ul>
+<li>时间复杂度：$O(N^2)$</li>
+<li>空间复杂度：$O(1)$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longestPalindrome</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:</span><br>        n = <span class="hljs-built_in">len</span>(s)<br>        start, end = <span class="hljs-number">0</span>, <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            left1, right1 = self.expand_around_center(s, i, i)   <span class="hljs-comment"># 从1个字符开始扩展</span><br>            left2, right2 = self.expand_around_center(s, i, i+<span class="hljs-number">1</span>) <span class="hljs-comment"># 从2个字符开始扩展</span><br>            <span class="hljs-keyword">if</span> right1-left1 &gt; end-start:<br>                start, end = left1, right1<br>            <span class="hljs-keyword">if</span> right2-left2 &gt; end-start:<br>                start, end = left2, right2<br>        <span class="hljs-keyword">return</span> s[start: end+<span class="hljs-number">1</span>]<br>            <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expand_around_center</span>(<span class="hljs-params">self, s, i, j</span>):</span><br>        n = <span class="hljs-built_in">len</span>(s)<br>        <span class="hljs-keyword">while</span> i&gt;=<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j&lt;n <span class="hljs-keyword">and</span> s[i]==s[j]:<br>            i -= <span class="hljs-number">1</span><br>            j += <span class="hljs-number">1</span><br>        <span class="hljs-comment"># 结束循环时，有 i&lt;0且j&gt;n，或者 s[i]!=s[j]</span><br>        <span class="hljs-comment"># 所以我们 i+1，j-1，回退到最后一个符合条件的位置</span><br>        <span class="hljs-keyword">return</span> i+<span class="hljs-number">1</span>, j-<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<h2 id="Manacher算法"><a href="#Manacher算法" class="headerlink" title="Manacher算法"></a>Manacher算法</h2><p>Manacher 算法（马拉车算法）本质上还是用中心扩展的思想<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.cxyxiaowu.com/2665.html
+">[2]</span></a></sup>，回文串可分为奇数回文串和偶数回文串，它们的区别是：奇数回文串关于它的“中点”满足“中心对称”，偶数回文串关于它“中间的两个点”满足“中心对称”。</p>
+<p>为了消除字符串长度是奇数和偶数带来的差异，首先需要对字符串进行<strong>预处理</strong>，也就是<strong>添加分隔符</strong>：在字符串的首尾、相邻的字符中插入分隔符，例如 <code>&quot;baba&quot;</code> 添加分隔符 <code>#</code> 以后得到 <code>&quot;#b#a#b#a#&quot;</code> 。</p>
+<blockquote>
+<p>插入分隔符后，不管原字符串长度是奇数还是偶数，最后得到的都是奇数长度的字符串。</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-08.svg" srcset="/img/loading.gif" lazyload alt="图8 原字符串插入分隔符"></p>
+<p>我们计算每个位置 <code>i</code> 开始向外扩展的最大回文子串长度，在此过程中记录最大的回文子串长度即可。在计算以 <code>i+1</code> 为中心的回文子串长度时，我们可以利用位置 <code>i</code> 上的信息。分 2 种情况讨论：</p>
+<blockquote>
+<p><code>r</code> 表示当前位置 <code>i</code> 向外扩展的最大右边界，数组 <code>P</code> 来记录每个位置向右扩展的最大长度。</p>
+<p><code>c</code> 表示目前找到的最长回文子串的中心位置，并用 <code>max_len</code> 记录最大回文子串长度。</p>
+</blockquote>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-09.svg" srcset="/img/loading.gif" lazyload alt="图9 从位置i开始向外对扩展"></p>
+<p>假设我们目前找到的最长子串中心位置为 <code>c=6</code> ，该位置的最大扩展右边界为 <code>r=10</code>，对于以 <code>c</code> 为中心的任何一个回文字符串来说，<code>r</code> 关于 <code>c</code> 的镜像的索引是 <code>l = 2*c - r</code> 。Manacher 的核心就是借助 <code>c</code>、<code>r</code>、<code>l</code> 提供的信息，在求 <code>P[i]</code> 的时候，不用暴力地向两侧扩展，易知以位置 <code>i</code> 为中心的回文字符串的长度为 <code>2*P[i]+1</code>。</p>
+<p><strong>（一）第一种情况，镜像索引向左扩展的步长没有超过已知最大回文子串的左边界，那么 <code>i</code> 处至少可以向外扩展 <code>P[i&#39;]</code> 步</strong></p>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-10.svg" srcset="/img/loading.gif" lazyload alt="图10 第一种情况"></p>
+<p>如图所示，<strong>此时 <code>i &lt; r</code></strong>，我们不用直接从 <code>i=7</code> 处向外扩展，可以先计算以 <code>i=7</code> 为中心的<strong>最短回文串长度</strong>，在此基础上得到 <code>P[i]</code>。</p>
+<p>先计算 <code>i</code> 的关于 <code>c</code> 的镜像索引 <code>i&#39; = 2*c -i</code>，如果 <code>i&#39; - P[i&#39;]</code> 没有小于 <code>l</code> ，即从位置 <code>i&#39;</code> 向外扩展 <code>p[i&#39;]</code> 步后，没有超出<strong>已知最大回文子串</strong>的左边界，那么位置 <code>i</code> 至少可以向外扩展 <code>P[i&#39;]</code> 步。</p>
+<blockquote>
+<p>这里利用的是以 <code>c</code> 为中心的回文字符串的对称性，只要没有超过这个回文字符串的边界，从 <code>i</code> 往右、左走多少步，和从 <code>i&#39;</code> 往左、右走多少步所看到的字符时一样的，所以在此条件下 <code>i&#39;</code> 能往左走多少步，<code>i</code> 就能往右走多少步。</p>
+</blockquote>
+<p>位置 <code>i</code> 实际可以向外扩展的长度可能会更大，所以还需要在此基础上继续扩展。</p>
+<p><strong>（二）第二种情况，即 <code>i&#39; - P[i&#39;]</code> 小于 <code>l</code>，那么 <code>i</code> 处至少可以向外扩展 <code>r-i</code> 步</strong></p>
+<p><img src="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/05-11.svg" srcset="/img/loading.gif" lazyload alt="图11 第二种情况"></p>
+<p>如图所示，此时 <code>i&#39;-P[i&#39;]=0</code> ，而 <code>l=2</code> ，即从位置 <code>i&#39;</code> 向外扩展 <code>P[i&#39;]</code> 步后，超出<strong>已知最大回文子串</strong>的左边界，所以 <code>P[9]</code>  至少为 <code>r - i = 3</code> 。</p>
+<blockquote>
+<p>即以 <code>i</code> 为中心的最小回文字符串，向右扩展的长度不超过已知最大回文子串的右边界 <code>r</code>，图中例子 <code>r</code> 刚好在边界处。</p>
+<p>如果 <code>r</code> 不是边界，假设上述字符串 <code>s</code> 长度不止 13，且以 <code>i=9</code> 为中心的回文字符串，有 <code>s[13]=s[5]=&#39;a&#39;</code>，此时会有 <code>s[1]=s[13]=&#39;a&#39;</code>，那么以 <code>i=7</code> 为中心的最长回文子串长度就变长了，不止是 5；如果 <code>s[13]≠&#39;a&#39;</code>，在此情况下刚好向右扩展 <code>r-i=12-9=3</code> 步。</p>
+</blockquote>
+<p>上面两种情况满足公式：</p>
+<script type="math/tex; mode=display">
+P[i] = min(r-i, P[i'])</script><p>然后从 <code>i</code> 左右 <code>P[i]</code> 的位置处继续向两侧扩展即可，如果以 <code>i</code> 为中心的回文字符串的右边界超过了 <code>r</code>，则更新 <code>c</code> 为<code>i</code> ，更新 <code>r</code> 为 <code>i + P[i]</code>。实现的 python 代码如下<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://medium.com/hackernoon/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f
+">[3]</span></a></sup>：</p>
+<ul>
+<li>时间复杂度：$O(N)$</li>
+<li>空间复杂度：$O(N)$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longestPalindrome</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>:</span><br>        s = <span class="hljs-string">&quot;#&quot;</span> + <span class="hljs-string">&quot;#&quot;</span>.join(s) + <span class="hljs-string">&quot;#&quot;</span><br>        N = <span class="hljs-built_in">len</span>(s)<br>        P = [<span class="hljs-number">0</span>] * N<br>        c, r = <span class="hljs-number">0</span>, <span class="hljs-number">0</span><br>        max_len = <span class="hljs-number">0</span>        <span class="hljs-comment"># 最大回文子串长度</span><br>        start, end = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>  <span class="hljs-comment"># 最大回文子串的起始和结束位置</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(N):<br>            i_mirror = (<span class="hljs-number">2</span> * c) - i<br>            <br>            <span class="hljs-keyword">if</span> i &lt; r:<br>                P[i] = <span class="hljs-built_in">min</span>(r - i, P[i_mirror])<br>            <span class="hljs-comment"># 开始中心扩展</span><br>            a = i - (<span class="hljs-number">1</span> + P[i])<br>            b = i + (<span class="hljs-number">1</span> + P[i])<br>            P[i] = self.expand_length(s, a, b)<br>            <br>            <span class="hljs-comment"># 查看当前位置 i 中心扩展后，当前右边界是否超过之前的最大右边界</span><br>            <span class="hljs-comment"># 如果是，则更新最大回文子串的 c 和 r</span><br>            <span class="hljs-keyword">if</span> i + P[i] &gt; r:<br>                c = i<br>                r = i + P[i]<br>                <span class="hljs-comment"># 判断是否为更长的回文子串</span><br>                <span class="hljs-keyword">if</span> (<span class="hljs-number">2</span>*P[i]+<span class="hljs-number">1</span>) &gt; max_len:<br>                    max_len = <span class="hljs-number">2</span> * P[i] + <span class="hljs-number">1</span><br>                    start = <span class="hljs-number">2</span> * c - r <br>                    end = r<br>        res = s[start: end+<span class="hljs-number">1</span>]<br>        res = <span class="hljs-string">&#x27;&#x27;</span> .join(res.split(<span class="hljs-string">&#x27;#&#x27;</span>))<br>        <span class="hljs-keyword">return</span> res<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">expand_length</span>(<span class="hljs-params">self, s, i, j</span>):</span><br>        n = <span class="hljs-built_in">len</span>(s)<br>        <span class="hljs-keyword">while</span> i&gt;=<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j&lt;n <span class="hljs-keyword">and</span> s[i]==s[j]:<br>            i -= <span class="hljs-number">1</span><br>            j += <span class="hljs-number">1</span><br>        <span class="hljs-comment"># 最大回文子串长度 L = (j-1) - (i+1) + 1 = j - i - 1</span><br>        <span class="hljs-comment"># 则需要向左向右扩展 P[i] = (L-1)//2</span><br>        L = j - i - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> (L-<span class="hljs-number">1</span>)//<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.cxyxiaowu.com/2665.html">https://www.cxyxiaowu.com/2665.html</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://medium.com/hackernoon/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f">https://medium.com/hackernoon/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LeetCode/">LeetCode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明来自 <a target="_blank" href="https://doggycheng.github.io/" rel="nofollow noopener noopener">那少年和狗</a>
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/">
+                        <span class="hidden-mobile">网络安全相关数据集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
