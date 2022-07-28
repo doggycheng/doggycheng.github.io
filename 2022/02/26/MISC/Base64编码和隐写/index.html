@@ -16,16 +16,16 @@
   <meta name="author" content="dogecheng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Base64 基本介绍Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding[1]，它是一种基于 64 个可打印字符来表示二进制数据的方法。 因为 $\log_2{64}&#x3D;6$，所以 Base64 编码每 6 个比特位为 1 个单元，换句话说，Base64 编码将每 3 字节（24 位）转换为 4 个 6 位的字符。  Base64 只是进行了编码">
+    <meta name="description" content="1. Base64 基本介绍Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding[1]，它是一种基于 64 个可打印字符来表示二进制数据的方法。 因为 $\log_2{64}&#x3D;6$，所以 Base64 编码每 6 个比特位为 1 个单元，换句话说，Base64 编码将每 3 字节（24 位）转换为 4 个 6 位的字符。  Base64 只是进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Base64编码和隐写">
 <meta property="og:url" content="http://example.com/2022/02/26/MISC/Base64%E7%BC%96%E7%A0%81%E5%92%8C%E9%9A%90%E5%86%99/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Base64 基本介绍Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding[1]，它是一种基于 64 个可打印字符来表示二进制数据的方法。 因为 $\log_2{64}&#x3D;6$，所以 Base64 编码每 6 个比特位为 1 个单元，换句话说，Base64 编码将每 3 字节（24 位）转换为 4 个 6 位的字符。  Base64 只是进行了编码">
+<meta property="og:description" content="1. Base64 基本介绍Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding[1]，它是一种基于 64 个可打印字符来表示二进制数据的方法。 因为 $\log_2{64}&#x3D;6$，所以 Base64 编码每 6 个比特位为 1 个单元，换句话说，Base64 编码将每 3 字节（24 位）转换为 4 个 6 位的字符。  Base64 只是进行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/index_img/preferences_popup.png">
 <meta property="article:published_time" content="2022-02-26T04:57:24.000Z">
-<meta property="article:modified_time" content="2022-02-26T08:43:24.844Z">
+<meta property="article:modified_time" content="2022-07-28T09:03:12.314Z">
 <meta property="article:author" content="dogecheng">
 <meta property="article:tag" content="隐写">
 <meta property="article:tag" content="MISC">
@@ -241,7 +241,7 @@
             <h1 style="display: none">Base64编码和隐写</h1>
             
             <div class="markdown-body">
-              <h1 id="Base64-基本介绍"><a href="#Base64-基本介绍" class="headerlink" title="Base64 基本介绍"></a>Base64 基本介绍</h1><p>Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://en.wikipedia.org/wiki/Base64
+              <h1 id="1-Base64-基本介绍"><a href="#1-Base64-基本介绍" class="headerlink" title="1. Base64 基本介绍"></a>1. Base64 基本介绍</h1><p>Base64 （基底64）这个术语源自 MIME 的 Content-Transfer-Encoding<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://en.wikipedia.org/wiki/Base64
 ">[1]</span></a></sup>，它是一种基于 64 个可打印字符来表示二进制数据的方法。</p>
 <p>因为 $\log_2{64}=6$，所以 Base64 编码每 6 个比特位为 1 个单元，换句话说，Base64 编码将每 3 字节（24 位）转换为 4 个 6 位的字符。</p>
 <blockquote>
@@ -566,7 +566,7 @@
 </tbody>
 </table>
 </div>
-<h1 id="Base64-编码过程"><a href="#Base64-编码过程" class="headerlink" title="Base64 编码过程"></a>Base64 编码过程</h1><p>Base64 编码的步骤大致如下：</p>
+<h1 id="2-Base64-编码过程"><a href="#2-Base64-编码过程" class="headerlink" title="2. Base64 编码过程"></a>2. Base64 编码过程</h1><p>Base64 编码的步骤大致如下：</p>
 <p>（1）将每个字符转换成二进制，合并得到一个二进制串，如果长度不能被 6 整除，需要进行填充；</p>
 <p>（2）将二进制串按 6 位一组划分，根据 Base64 字符集进行编码；</p>
 <p>（3）Base64 编码后的字符长度不是 4 的倍数时，用一个或两个 <code>=</code> 进行填充。</p>
@@ -585,7 +585,7 @@
 <p>填充不是必须的，因为无需填充也可以通过编码后的内容计算出缺失的字节。所以在一些实现中填充是必须的，有些却不是。一种必须使用填充的场合是当需要将多个 Base64 编码文件合并为一个文件的时候<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.cnblogs.com/antineutrino/p/3756106.html
 ">[2]</span></a></sup>。</p>
 </blockquote>
-<h1 id="Base64-解码过程"><a href="#Base64-解码过程" class="headerlink" title="Base64 解码过程"></a>Base64 解码过程</h1><p>解码过程如下：</p>
+<h1 id="3-Base64-解码过程"><a href="#3-Base64-解码过程" class="headerlink" title="3. Base64 解码过程"></a>3. Base64 解码过程</h1><p>解码过程如下：</p>
 <p>（1）根据 Base64 字符集转变成相应的二进制串，如果存在填充字符 <code>=</code> 需要先去掉；</p>
 <p>（2）将二进制串按 8 位一组划分，剩余长度如果不足 8 位，则直接去除；</p>
 <p>（3）将每 8 位二进制串转换为相应的 ASCII 字符。</p>
@@ -596,7 +596,7 @@
 <p><img src="/2022/02/26/MISC/Base64%E7%BC%96%E7%A0%81%E5%92%8C%E9%9A%90%E5%86%99/base64_4.svg" srcset="/img/loading.gif" lazyload alt></p>
 <p>当只有两个填充字符 <code>=</code> 时，下图分别展示了有无填充字符的解码过程：</p>
 <p><img src="/2022/02/26/MISC/Base64%E7%BC%96%E7%A0%81%E5%92%8C%E9%9A%90%E5%86%99/base64_5.svg" srcset="/img/loading.gif" lazyload alt></p>
-<h1 id="Base64-隐写"><a href="#Base64-隐写" class="headerlink" title="Base64 隐写"></a>Base64 隐写</h1><p>我们已经知道补 Base64 编码过程中可能存在补 0 的操作，那么补的必须是 0 吗，换成1可不可以？当然可以<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://zhuanlan.zhihu.com/p/349481870
+<h1 id="4-Base64-隐写"><a href="#4-Base64-隐写" class="headerlink" title="4. Base64 隐写"></a>4. Base64 隐写</h1><p>我们已经知道补 Base64 编码过程中可能存在补 0 的操作，那么补的必须是 0 吗，换成1可不可以？当然可以<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://zhuanlan.zhihu.com/p/349481870
 ">[3]</span></a></sup>。</p>
 <p>因为解码时无论最后补的数是 0 还是 1，都会被删去，修改这些位不会影响解码结果，这便是Base64隐写的原理。</p>
 <blockquote>
@@ -657,6 +657,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/07/28/LeetCode/6.%20Z%20%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">6. Z 字形变换</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

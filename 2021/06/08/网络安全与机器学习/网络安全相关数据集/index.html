@@ -16,16 +16,16 @@
   <meta name="author" content="dogecheng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="入侵检测DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to Root（U2R">
+    <meta name="description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to R">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全相关数据集">
 <meta property="og:url" content="http://example.com/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="入侵检测DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to Root（U2R">
+<meta property="og:description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to R">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/index_img/secure_data.png">
 <meta property="article:published_time" content="2021-06-08T07:21:08.000Z">
-<meta property="article:modified_time" content="2021-06-08T07:47:16.302Z">
+<meta property="article:modified_time" content="2022-07-28T09:05:00.268Z">
 <meta property="article:author" content="dogecheng">
 <meta property="article:tag" content="网络安全">
 <meta property="article:tag" content="数据集">
@@ -241,7 +241,7 @@
             <h1 style="display: none">网络安全相关数据集</h1>
             
             <div class="markdown-body">
-              <h1 id="入侵检测"><a href="#入侵检测" class="headerlink" title="入侵检测"></a>入侵检测</h1><h2 id="DARPA"><a href="#DARPA" class="headerlink" title="DARPA"></a>DARPA</h2><p><strong>数据集简介</strong></p>
+              <h1 id="1-入侵检测"><a href="#1-入侵检测" class="headerlink" title="1. 入侵检测"></a>1. 入侵检测</h1><h2 id="1-1-DARPA"><a href="#1-1-DARPA" class="headerlink" title="1.1 DARPA"></a>1.1 DARPA</h2><p><strong>数据集简介</strong></p>
 <p>DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://archive.ll.mit.edu/ideval/docs/attackDB.html
 ">[1]</span></a></sup>：Denial of Service（DoS）、User to Root（U2R）、Remote to Local（R2L）、Probes 和 Data。</p>
 <p>DARPA 1998 包括审计日志数据和网络流量数据两个部分，审计日志数据使用 Sun 公司的 Basic Security Monitoring (BSM) 收集，网络流量数据使用 tcpdump 收集。数据集中每一行代表一个会话，每一个会话对应两台计算机之间单独的 TCP/IP 连接，一个 TCP 会话过程包括建立三次握手到关闭连接时最后收到的 FIN 和 ACK 数据包。每一个会话通过 5 元组唯一标识，此 5 元组即开始时间、源 IP、目的 IP、源端口、目的端口。数据集在模拟的入侵环境中收集：路由器内部网上有两个工作站，外部有一个工作站。</p>
@@ -271,7 +271,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset">https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ll.mit.edu/r-d/datasets/1999-darpa-intrusion-detection-evaluation-dataset">https://www.ll.mit.edu/r-d/datasets/1999-darpa-intrusion-detection-evaluation-dataset</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ll.mit.edu/r-d/datasets/2000-darpa-intrusion-detection-scenario-specific-datasets">https://www.ll.mit.edu/r-d/datasets/2000-darpa-intrusion-detection-scenario-specific-datasets</a></p>
-<h2 id="KDD99"><a href="#KDD99" class="headerlink" title="KDD99"></a>KDD99</h2><p><strong>数据集简介</strong></p>
+<h2 id="1-2-KDD99"><a href="#1-2-KDD99" class="headerlink" title="1.2 KDD99"></a>1.2 KDD99</h2><p><strong>数据集简介</strong></p>
 <p>KDD99 数据集<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="http://kdd.ics.uci.edu/databases/kddcup99/task.html
 ">[4]</span></a></sup>基于 DARPA 1998 数据集，它对 DARPA 1998 数据集进行了特征分析和数据预处理。KDD99 将攻击分成了 4 大类，分别是 DoS、R2L、U2R 和 Probing。下面展示了 1 条 KDD99 的样本，它有 42 个字段，其中包括 41 项特征，最后 1 项是标签。</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>,tcp,http,SF,<span class="hljs-number">181</span>,<span class="hljs-number">5450</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">8</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">1</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">9</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">11</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,normal.<br></code></pre></td></tr></table></figure>
@@ -282,7 +282,7 @@
 <p>本文最后访问数据集时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html</a></p>
-<h2 id="NSL-KDD"><a href="#NSL-KDD" class="headerlink" title="NSL-KDD"></a>NSL-KDD</h2><p><strong>数据集简介</strong></p>
+<h2 id="1-3-NSL-KDD"><a href="#1-3-NSL-KDD" class="headerlink" title="1.3 NSL-KDD"></a>1.3 NSL-KDD</h2><p><strong>数据集简介</strong></p>
 <p>NSL-KDD<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="翟明芳, 张兴明, 赵博. 基于深度学习的加密恶意流量检测研究[J]. 网络与信息安全学报, 2020, 6(03): 66-77.
 ">[5]</span></a></sup> 数据集去除 KDD99 数据集中冗余的数据，克服了分类器偏向于重复出现的记录等问题，需要填写一些个人信息，提交表单后才能获得数据集。</p>
 <p><strong>数据集获取</strong></p>
@@ -290,7 +290,7 @@
 <p>本文最后访问数据集时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.unb.ca/cic/datasets/nsl.html">https://www.unb.ca/cic/datasets/nsl.html</a></p>
-<h2 id="UNSW-NB-15"><a href="#UNSW-NB-15" class="headerlink" title="UNSW-NB 15"></a>UNSW-NB 15</h2><p><strong>数据集简介</strong></p>
+<h2 id="1-4-UNSW-NB-15"><a href="#1-4-UNSW-NB-15" class="headerlink" title="1.4 UNSW-NB 15"></a>1.4 UNSW-NB 15</h2><p><strong>数据集简介</strong></p>
 <p>KDD99 等数据集距离现在已经十分久远，不能反映当前的网络威胁环境，所以新南威尔士大学（The University of New South Wales）创造了此数据集。UNSW_NB15_training-set.csv 和 UNSW_NB15_testing-set.csv 是预处理过的数据集，训练集有 175341 个样本，测试集有 82332 个样本。</p>
 <p>下图给出了 UNSW-NB 15 没有预处理过的 CSV 数据集，它有 49 个字段，其中包括 2 个标签，最后两个字段分别为<code>attack_type</code> 和 <code>label</code> ，<code>attack_type</code> 用字符串的形式标识此记录的攻击类型，<code>label</code> 以 0-1 的方式标识此记录是否为攻击，攻击则此字段为 1，否则为 0，具体的每个字段的内容可以查看 UNSW-NB15_features.csv，或者阅读文献 <em>UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set)</em><sup id="fnref:6" class="footnote-ref"><a href="#fn:6" rel="footnote"><span class="hint--top hint--rounded" aria-label="Moustafa, Nour, and Jill Slay. “UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set).” 2015 military communications and information systems conference (MilCIS). IEEE, 2015.
 ">[6]</span></a></sup>。</p>
@@ -304,21 +304,21 @@
 <p>项目地址：<a target="_blank" rel="noopener" href="https://research.unsw.edu.au/projects/unsw-nb15-dataset">https://research.unsw.edu.au/projects/unsw-nb15-dataset</a></p>
 <p>数据集下载：<a target="_blank" rel="noopener" href="https://cloudstor.aarnet.edu.au/plus/index.php/s/2DhnLGDdEECo4ys">https://cloudstor.aarnet.edu.au/plus/index.php/s/2DhnLGDdEECo4ys</a></p>
 <p>项目地址依然可以访问，但是数据集不能正常下载，需要到下面的 cloudstor 中下载。</p>
-<h2 id="UGR’16"><a href="#UGR’16" class="headerlink" title="UGR’16"></a>UGR’16</h2><p><strong>数据集简介</strong></p>
+<h2 id="1-5-UGR’16"><a href="#1-5-UGR’16" class="headerlink" title="1.5 UGR’16"></a>1.5 UGR’16</h2><p><strong>数据集简介</strong></p>
 <p>收集了西班牙一些具有战略性地位的 ISP 网络中的流量，它由两个不同的数据集组成：，一个从收集了 2016 年 3月到 2016 年 6 月 这 4 个月的校准数据集，它包含真正的后台业务数据； 还有一个收集了 2016 年 7 月到 2016 年 8 月这 2 个月的测试数据集，它包含真实数据和生成的流量数据，这些生成的数据覆盖了许多已知的攻击类型。</p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://nesg.ugr.es/nesg-ugr16/index.php">https://nesg.ugr.es/nesg-ugr16/index.php</a></p>
-<h1 id="僵尸网络"><a href="#僵尸网络" class="headerlink" title="僵尸网络"></a>僵尸网络</h1><h2 id="CTU-13"><a href="#CTU-13" class="headerlink" title="CTU-13"></a>CTU-13</h2><p><strong>数据集简介</strong></p>
+<h1 id="2-僵尸网络"><a href="#2-僵尸网络" class="headerlink" title="2. 僵尸网络"></a>2. 僵尸网络</h1><h2 id="2-1-CTU-13"><a href="#2-1-CTU-13" class="headerlink" title="2.1 CTU-13"></a>2.1 CTU-13</h2><p><strong>数据集简介</strong></p>
 <p>CTU-13 是 2011 年在捷克理工大学（Czech Technical University in Prague）捕获的僵尸网络流量数据集。CTU-13 数据集包含 13 个不同场景下捕获到的数据，在每个场景中，我们都执行了一个特定的恶意软件，这个恶意软件使用了多种协议并执行了不同的操作，详细内容请查阅 <a target="_blank" rel="noopener" href="https://mcfp.weebly.com/the-ctu-13-dataset-a-labeled-dataset-with-botnet-normal-and-background-traffic.html">THE CTU-13 DATASET. A LABELED DATASET WITH BOTNET, NORMAL AND BACKGROUND TRAFFIC.</a>。</p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://mcfp.weebly.com/the-ctu-13-dataset-a-labeled-dataset-with-botnet-normal-and-background-traffic.html">https://mcfp.weebly.com/the-ctu-13-dataset-a-labeled-dataset-with-botnet-normal-and-background-traffic.html</a></p>
-<h1 id="WEB-攻击"><a href="#WEB-攻击" class="headerlink" title="WEB 攻击"></a>WEB 攻击</h1><h2 id="HTTP-CSIC-2010"><a href="#HTTP-CSIC-2010" class="headerlink" title="HTTP CSIC 2010"></a>HTTP CSIC 2010</h2><p><strong>数据集简介</strong></p>
+<h1 id="3-WEB-攻击"><a href="#3-WEB-攻击" class="headerlink" title="3. WEB 攻击"></a>3. WEB 攻击</h1><h2 id="3-1-HTTP-CSIC-2010"><a href="#3-1-HTTP-CSIC-2010" class="headerlink" title="3.1 HTTP CSIC 2010"></a>3.1 HTTP CSIC 2010</h2><p><strong>数据集简介</strong></p>
 <p>CSIC 2010 西班牙国家研究委员会信息安全研究所（Consejo Superior de Investigaciones Científicas）开发，包含 36000 个正常请求和 25000 多个异常请求，包括但不限于 SQL 注入、信息收集、敏感文件泄露 和 XSS 等 WEB 攻击。</p>
 <p>下图给出了 CSIC 2010 数据集的文件内容，这是 2 个 SQL 注入的 HTTP 请求样本，CSIC 2010 的样本都是这样的 HTTP 请求，请求方法包括主要是 GET 和 POST，还有少量 PUT 请求。</p>
 <p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605205632632.png" srcset="/img/loading.gif" lazyload alt="image-20210605205632632" style="zoom:50%;"></p>
@@ -327,7 +327,7 @@
 <p>本文最后访问数据集时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.tic.itefi.csic.es/dataset/">https://www.tic.itefi.csic.es/dataset/</a></p>
-<h1 id="垃圾邮件-amp-垃圾短信"><a href="#垃圾邮件-amp-垃圾短信" class="headerlink" title="垃圾邮件&amp;垃圾短信"></a>垃圾邮件&amp;垃圾短信</h1><h2 id="UCI-Spambase"><a href="#UCI-Spambase" class="headerlink" title="UCI Spambase"></a>UCI Spambase</h2><p><strong>数据集简介</strong></p>
+<h1 id="4-垃圾邮件-amp-垃圾短信"><a href="#4-垃圾邮件-amp-垃圾短信" class="headerlink" title="4. 垃圾邮件&amp;垃圾短信"></a>4. 垃圾邮件&amp;垃圾短信</h1><h2 id="4-1-UCI-Spambase"><a href="#4-1-UCI-Spambase" class="headerlink" title="4.1 UCI Spambase"></a>4.1 UCI Spambase</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校（Irvine, CA: University of California）收集的垃圾邮件数据集，它有 4601 个样本。</p>
 <p>下面是 UCI Spambase 的一个样本，它有 58 个字段，包括 57 个特征和 1 个标签，最后一列是标签，0 代表该样本不是垃圾邮件，1 代表该样本是垃圾邮件。特征的具体说明可以查阅 <a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.names">spambase.names</a>。</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">32</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">32</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">29</span>,<span class="hljs-number">1</span>.<span class="hljs-number">93</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">96</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">778</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>.<span class="hljs-number">756</span>,<span class="hljs-number">61</span>,<span class="hljs-number">278</span>,<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
@@ -336,7 +336,7 @@
 <p>本文最后访问数据集时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/Spambase">https://archive.ics.uci.edu/ml/datasets/Spambase</a></p>
-<h2 id="UCI-SMS-Spam"><a href="#UCI-SMS-Spam" class="headerlink" title="UCI SMS Spam"></a>UCI SMS Spam</h2><p><strong>数据集简介</strong></p>
+<h2 id="4-2-UCI-SMS-Spam"><a href="#4-2-UCI-SMS-Spam" class="headerlink" title="4.2 UCI SMS Spam"></a>4.2 UCI SMS Spam</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校收集的垃圾短信数据集，它有 5574 个样本，每个样本由 2 部分组成，第 1 部分是标签，第 2 部分是短信内容。</p>
 <p>下面是此数据集的 2 个样本示例，标签和短信内容由制表符 <code>\t</code> 分隔，spam 代表这是一条垃圾短信，ham 代表这一条不是垃圾短信。</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ham</span>	Ok lar... Joking wif u oni...<br><span class="hljs-attribute">spam</span>	Free entry in <span class="hljs-number">2</span> a wkly comp to win FA Cup final tkts <span class="hljs-number">21</span>st May <span class="hljs-number">2005</span>. Text FA to <span class="hljs-number">87121</span> to receive entry question(std txt rate)T&amp;C&#x27;s apply <span class="hljs-number">08452810075</span>over<span class="hljs-number">18</span>&#x27;s<br></code></pre></td></tr></table></figure>
@@ -345,7 +345,7 @@
 <p> 本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection">https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection</a></p>
-<h1 id="钓鱼网站-amp-钓鱼邮件"><a href="#钓鱼网站-amp-钓鱼邮件" class="headerlink" title="钓鱼网站&amp;钓鱼邮件"></a>钓鱼网站&amp;钓鱼邮件</h1><h2 id="UCI-Website-Phishing-Data-Set"><a href="#UCI-Website-Phishing-Data-Set" class="headerlink" title="UCI Website Phishing Data Set"></a>UCI Website Phishing Data Set</h2><p><strong>数据集简介</strong></p>
+<h1 id="5-钓鱼网站-amp-钓鱼邮件"><a href="#5-钓鱼网站-amp-钓鱼邮件" class="headerlink" title="5. 钓鱼网站&amp;钓鱼邮件"></a>5. 钓鱼网站&amp;钓鱼邮件</h1><h2 id="5-1-UCI-Website-Phishing-Data-Set"><a href="#5-1-UCI-Website-Phishing-Data-Set" class="headerlink" title="5.1 UCI Website Phishing Data Set"></a>5.1 UCI Website Phishing Data Set</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校收集的钓鱼网站数据集，它有 1353 个样本。</p>
 <p>下面是此数据集的 2 个样本示例，它有 10 个字段，其中包括 9 个特征和 1 个标签。最后一个字段代表标签，它有 3 个可取值 <code>&#123;1,0,-1&#125;</code>，1 代表合法，0 代表可疑，说明它可能是钓鱼网站，也可能不是钓鱼网站，-1 代表钓鱼网站。</p>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit">1,<span class="hljs-string">-1</span>,1,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,1,1,1,0,0<br><span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,0,1,1,1,1<br></code></pre></td></tr></table></figure>
@@ -356,7 +356,7 @@
 <p> 本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/Website+Phishing">https://archive.ics.uci.edu/ml/datasets/Website+Phishing</a></p>
-<h2 id="Phishing-Features-Dataset"><a href="#Phishing-Features-Dataset" class="headerlink" title="Phishing Features Dataset"></a>Phishing Features Dataset</h2><p><strong>数据集简介</strong></p>
+<h2 id="5-2-Phishing-Features-Dataset"><a href="#5-2-Phishing-Features-Dataset" class="headerlink" title="5.2 Phishing Features Dataset"></a>5.2 Phishing Features Dataset</h2><p><strong>数据集简介</strong></p>
 <p>马来西亚砂拉越大学计算机科学与信息技术学院<sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span class="hint--top hint--rounded" aria-label="Chiew, Kang Leng, et al. “A new hybrid ensemble feature selection framework for machine learning-based phishing detection system.” Information Sciences 484 (2019): 153-166.
 ">[8]</span></a></sup>制作的一个数据集，数据集从 2015 年 1 月至 2017 年 5 月收集了钓鱼网页和合法网页， 5000 个钓鱼网页和 5000 个合法网页，从 PhishTank 和 OpenPhish 的 URL 中选择了 5000 个钓鱼网页，还有 5000 个来自 Alexa 和 Common Crawl 存档的合法网页的 URL。</p>
 <p>下面是此数据集的样本示例，包括 49 个字段，其中 48 项是特征，最后 1 项是标签。</p>
@@ -366,7 +366,7 @@
 <p> 本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://data.mendeley.com/datasets/h3cgnj8hft/1">https://data.mendeley.com/datasets/h3cgnj8hft/1</a></p>
-<h1 id="DGA"><a href="#DGA" class="headerlink" title="DGA"></a>DGA</h1><h2 id="360-DGA"><a href="#360-DGA" class="headerlink" title="360 DGA"></a>360 DGA</h2><p><strong>数据集简介</strong></p>
+<h1 id="6-DGA"><a href="#6-DGA" class="headerlink" title="6. DGA"></a>6. DGA</h1><h2 id="6-1-360-DGA"><a href="#6-1-360-DGA" class="headerlink" title="6.1 360 DGA"></a>6.1 360 DGA</h2><p><strong>数据集简介</strong></p>
 <p>360 提供的 DGA 数据集，全是恶意样本。</p>
 <p>下面是此数据集的样本示例，包括 4 个字段，分别是 <code>所属DGA家族,域名,有效的开始时间,有效的结束时间</code>。</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nymaim</span>	uvegpylvsj.net	<span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">08</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>	<span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">08</span> <span class="hljs-number">23</span>:<span class="hljs-number">59</span>:<span class="hljs-number">59</span><br></code></pre></td></tr></table></figure>
@@ -375,24 +375,24 @@
 <p>本文最后访问数据集时间：2021-06-08</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://data.netlab.360.com/dga/">http://data.netlab.360.com/dga/</a></p>
-<h1 id="数据集仓库"><a href="#数据集仓库" class="headerlink" title="数据集仓库"></a>数据集仓库</h1><h2 id="加拿大安全研究所"><a href="#加拿大安全研究所" class="headerlink" title="加拿大安全研究所"></a>加拿大安全研究所</h2><p>需要填写一些个人信息，提交表单后才能获得数据集。</p>
+<h1 id="7-数据集仓库"><a href="#7-数据集仓库" class="headerlink" title="7. 数据集仓库"></a>7. 数据集仓库</h1><h2 id="7-1-加拿大安全研究所"><a href="#7-1-加拿大安全研究所" class="headerlink" title="7.1 加拿大安全研究所"></a>7.1 加拿大安全研究所</h2><p>需要填写一些个人信息，提交表单后才能获得数据集。</p>
 <blockquote>
 <p>本文最后访问页面时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.unb.ca/cic/datasets/index.html">https://www.unb.ca/cic/datasets/index.html</a></p>
-<h2 id="SecRepo"><a href="#SecRepo" class="headerlink" title="SecRepo"></a>SecRepo</h2><blockquote>
+<h2 id="7-2-SecRepo"><a href="#7-2-SecRepo" class="headerlink" title="7.2 SecRepo"></a>7.2 SecRepo</h2><blockquote>
 <p>本文最后访问页面时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://www.secrepo.com/">http://www.secrepo.com/</a></p>
-<h2 id="CAIDA-Data"><a href="#CAIDA-Data" class="headerlink" title="CAIDA Data"></a>CAIDA Data</h2><blockquote>
+<h2 id="7-3-CAIDA-Data"><a href="#7-3-CAIDA-Data" class="headerlink" title="7.3 CAIDA Data"></a>7.3 CAIDA Data</h2><blockquote>
 <p>本文最后访问页面时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.caida.org/catalog/datasets/overview/">https://www.caida.org/catalog/datasets/overview/</a></p>
-<h2 id="Security-amp-Privacy-Laboratory"><a href="#Security-amp-Privacy-Laboratory" class="headerlink" title="Security &amp; Privacy Laboratory"></a>Security &amp; Privacy Laboratory</h2><blockquote>
+<h2 id="7-4-Security-amp-Privacy-Laboratory"><a href="#7-4-Security-amp-Privacy-Laboratory" class="headerlink" title="7.4 Security &amp; Privacy Laboratory"></a>7.4 Security &amp; Privacy Laboratory</h2><blockquote>
 <p>本文最后访问页面时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://secplab.ppgia.pucpr.br/?q=trabid">https://secplab.ppgia.pucpr.br/?q=trabid</a></p>
-<h2 id="Jason-Trost-博客"><a href="#Jason-Trost-博客" class="headerlink" title="Jason Trost 博客"></a>Jason Trost 博客</h2><p>这是汇丰银行网络安全分析引擎主管的博客网站，分享了一些数据集的地址</p>
+<h2 id="7-5-Jason-Trost-博客"><a href="#7-5-Jason-Trost-博客" class="headerlink" title="7.5 Jason Trost 博客"></a>7.5 Jason Trost 博客</h2><p>这是汇丰银行网络安全分析引擎主管的博客网站，分享了一些数据集的地址</p>
 <blockquote>
 <p>本文最后访问页面时间：2021-06-06</p>
 </blockquote>

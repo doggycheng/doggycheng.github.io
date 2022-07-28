@@ -16,16 +16,16 @@
   <meta name="author" content="dogecheng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;two-sum  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 123输入：nums &#x3D; [2,7,11,15]">
+    <meta name="description" content="1. 简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;two-sum  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 123输入：nums &#x3D; [2,7,11,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. 两数之和">
 <meta property="og:url" content="http://example.com/2021/05/22/LeetCode/1.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;two-sum  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 123输入：nums &#x3D; [2,7,11,15]">
+<meta property="og:description" content="1. 简介 链接：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;two-sum  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 123输入：nums &#x3D; [2,7,11,">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/index_img/code.png">
 <meta property="article:published_time" content="2021-05-22T13:51:37.000Z">
-<meta property="article:modified_time" content="2021-05-22T15:51:15.777Z">
+<meta property="article:modified_time" content="2022-07-28T09:01:41.200Z">
 <meta property="article:author" content="dogecheng">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="哈希表">
@@ -200,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.1k 字
     </span>
   
 
@@ -241,7 +241,7 @@
             <h1 style="display: none">1. 两数之和</h1>
             
             <div class="markdown-body">
-              <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+              <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h1><blockquote>
 <p>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a></p>
 </blockquote>
 <p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p>
@@ -260,9 +260,9 @@
 <li><code>-109 &lt;= target &lt;= 109</code></li>
 <li><strong>只会存在一个有效答案</strong></li>
 </ul>
-<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="暴力求解"><a href="#暴力求解" class="headerlink" title="暴力求解"></a>暴力求解</h2><p>利用两个 <code>for</code> 循环，找到求和等于 <code>target</code> 的数字下标即可</p>
+<h1 id="2-题解"><a href="#2-题解" class="headerlink" title="2. 题解"></a>2. 题解</h1><h2 id="2-1-暴力求解"><a href="#2-1-暴力求解" class="headerlink" title="2.1 暴力求解"></a>2.1 暴力求解</h2><p>利用两个 <code>for</code> 循环，找到求和等于 <code>target</code> 的数字下标即可</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">twoSum</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], target: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:</span><br>        n = <span class="hljs-built_in">len</span>(nums)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i+<span class="hljs-number">1</span>,n):<br>                <span class="hljs-keyword">if</span> nums[i]+nums[j]==target:<br>                    <span class="hljs-keyword">return</span> [i,j]<br></code></pre></td></tr></table></figure>
-<h2 id="利用字典"><a href="#利用字典" class="headerlink" title="利用字典"></a>利用字典</h2><p>两个 <code>for</code> 循环的时间复杂度为 $O(N^2)$，如果我们用字典记录之前看过的数字和对应的索引，遍历其他数字时，先计算该数字和 <code>target</code> 的差值 <code>diff=target-num</code>，如果 <code>diff</code> 在字典中，我们就能直接返回结果，而字典的查找时间复杂度为 <code>O(1)</code>，整个算法的时间复杂度降到 $O(N)$。流程如下：</p>
+<h2 id="2-2-利用字典"><a href="#2-2-利用字典" class="headerlink" title="2.2 利用字典"></a>2.2 利用字典</h2><p>两个 <code>for</code> 循环的时间复杂度为 $O(N^2)$，如果我们用字典记录之前看过的数字和对应的索引，遍历其他数字时，先计算该数字和 <code>target</code> 的差值 <code>diff=target-num</code>，如果 <code>diff</code> 在字典中，我们就能直接返回结果，而字典的查找时间复杂度为 <code>O(1)</code>，整个算法的时间复杂度降到 $O(N)$。流程如下：</p>
 <ul>
 <li>初始化一个字典；</li>
 <li>开始遍历 <code>nums</code> 中的数字 <code>num</code>，计算 <code>diff=target-num</code> ，如果 <code>diff</code> 在字典中，结束流程，返回数字下标；如果 <code>diff</code> 不在字典中，我们在字典中添加一个元素，键为 <code>num</code>，值为 <code>num</code> 的下标；</li>
