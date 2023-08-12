@@ -18,11 +18,12 @@
   
     <meta property="og:type" content="website">
 <meta property="og:title" content="分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+<meta property="og:url" content="https://doggycheng.github.io/categories/index.html">
 <meta property="og:site_name" content="My Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="dogecheng">
 <meta name="twitter:card" content="summary_large_image">
+  
   
   
   <title>分类 - My Blog</title>
@@ -31,9 +32,12 @@
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -42,21 +46,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"doggycheng.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
-  <header style="height: 60vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>My Blog</strong>
@@ -138,6 +163,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -150,29 +176,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="分类"></span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -187,24 +219,27 @@
 <div class="category-list">
   
   
-  
-  
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="LeetCode"
         id="heading-071fda8ffed879b16c3308d2133bac46" role="tab" data-toggle="collapse" href="#collapse-071fda8ffed879b16c3308d2133bac46"
         aria-expanded="false"
       >
         LeetCode
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/LeetCode/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>6</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-071fda8ffed879b16c3308d2133bac46" role="tabpanel" aria-labelledby="heading-071fda8ffed879b16c3308d2133bac46">
+      
+        <a href="/categories/LeetCode/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>7</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-071fda8ffed879b16c3308d2133bac46"
+           role="tabpanel" aria-labelledby="heading-071fda8ffed879b16c3308d2133bac46">
         
         
           
@@ -213,43 +248,64 @@
     
       
       
-        <a href="/2021/05/22/LeetCode/1.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="list-group-item list-group-item-action">
+        <a href="/2021/05/22/LeetCode/1.%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="1. 两数之和"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">1. 两数之和</span>
         </a>
       
     
       
       
-        <a href="/2021/05/22/LeetCode/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" class="list-group-item list-group-item-action">
+        <a href="/2021/05/22/LeetCode/2.%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" title="2. 两数相加"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">2. 两数相加</span>
         </a>
       
     
       
       
-        <a href="/2021/05/31/LeetCode/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="list-group-item list-group-item-action">
+        <a href="/2021/05/31/LeetCode/3.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" title="3. 无重复字符的最长子串"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">3. 无重复字符的最长子串</span>
         </a>
       
     
       
       
-        <a href="/2021/05/31/LeetCode/4.%20%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" class="list-group-item list-group-item-action">
+        <a href="/2021/05/31/LeetCode/4.%20%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="4. 寻找两个正序数组的中位数"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">4. 寻找两个正序数组的中位数</span>
         </a>
       
     
       
       
-        <a href="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" class="list-group-item list-group-item-action">
+        <a href="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="5. 最长回文子串"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">5. 最长回文子串</span>
         </a>
       
     
       
       
-        <a href="/2022/07/28/LeetCode/6.%20Z%20%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" class="list-group-item list-group-item-action">
-          <span class="category-post">6. Z 字形变换</span>
+        <a href="/2022/07/28/LeetCode/6.%20N%20%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/" title="6. N 字形变换"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">6. N 字形变换</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2023/08/12/LeetCode/7.%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" title="7. 整数反转"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">7. 整数反转</span>
         </a>
       
     
@@ -261,20 +317,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="MISC"
         id="heading-ca5c504c6136e20051be115160b0f0b8" role="tab" data-toggle="collapse" href="#collapse-ca5c504c6136e20051be115160b0f0b8"
         aria-expanded="false"
       >
         MISC
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/MISC/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-ca5c504c6136e20051be115160b0f0b8" role="tabpanel" aria-labelledby="heading-ca5c504c6136e20051be115160b0f0b8">
+      
+        <a href="/categories/MISC/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-ca5c504c6136e20051be115160b0f0b8"
+           role="tabpanel" aria-labelledby="heading-ca5c504c6136e20051be115160b0f0b8">
         
         
           
@@ -283,7 +344,9 @@
     
       
       
-        <a href="/2022/02/26/MISC/Base64%E7%BC%96%E7%A0%81%E5%92%8C%E9%9A%90%E5%86%99/" class="list-group-item list-group-item-action">
+        <a href="/2022/02/26/MISC/Base64%E7%BC%96%E7%A0%81%E5%92%8C%E9%9A%90%E5%86%99/" title="Base64编码和隐写"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Base64编码和隐写</span>
         </a>
       
@@ -296,87 +359,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-046a899ee7a6ec88d370211a518c9e80" role="tab" data-toggle="collapse" href="#collapse-046a899ee7a6ec88d370211a518c9e80"
-        aria-expanded="false"
-      >
-        算法
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-046a899ee7a6ec88d370211a518c9e80" role="tabpanel" aria-labelledby="heading-046a899ee7a6ec88d370211a518c9e80">
-        
-        
-          
-          
-  <div class="category-post-list">
     
-    
-  </div>
-
-          
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-dc5d07a1867b1c0b57153afe054d0332" role="tab" data-toggle="collapse" href="#collapse-dc5d07a1867b1c0b57153afe054d0332"
-        aria-expanded="false"
-      >
-        查找
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-dc5d07a1867b1c0b57153afe054d0332" role="tabpanel" aria-labelledby="heading-dc5d07a1867b1c0b57153afe054d0332">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2021/04/30/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="list-group-item list-group-item-action">
-          <span class="category-post">二分查找</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="网络安全"
         id="heading-a9fbbd40048656862e149a84b77b9b40" role="tab" data-toggle="collapse" href="#collapse-a9fbbd40048656862e149a84b77b9b40"
         aria-expanded="false"
       >
         网络安全
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-a9fbbd40048656862e149a84b77b9b40" role="tabpanel" aria-labelledby="heading-a9fbbd40048656862e149a84b77b9b40">
+      
+        <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-a9fbbd40048656862e149a84b77b9b40"
+           role="tabpanel" aria-labelledby="heading-a9fbbd40048656862e149a84b77b9b40">
         
         
           
@@ -388,23 +389,27 @@
 
           
   
-  
     
     
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="数据集"
         id="heading-e20804e309aff069f9e1394e5b2b8f87" role="tab" data-toggle="collapse" href="#collapse-e20804e309aff069f9e1394e5b2b8f87"
         aria-expanded="false"
       >
         数据集
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-e20804e309aff069f9e1394e5b2b8f87" role="tabpanel" aria-labelledby="heading-e20804e309aff069f9e1394e5b2b8f87">
+      
+        <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-e20804e309aff069f9e1394e5b2b8f87"
+           role="tabpanel" aria-labelledby="heading-e20804e309aff069f9e1394e5b2b8f87">
         
         
           
@@ -413,7 +418,9 @@
     
       
       
-        <a href="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/" class="list-group-item list-group-item-action">
+        <a href="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/" title="网络安全相关数据集"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">网络安全相关数据集</span>
         </a>
       
@@ -428,7 +435,86 @@
       </div>
     </div>
   
+    
+    
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="算法"
+        id="heading-046a899ee7a6ec88d370211a518c9e80" role="tab" data-toggle="collapse" href="#collapse-046a899ee7a6ec88d370211a518c9e80"
+        aria-expanded="false"
+      >
+        算法
+        <span class="list-group-count"></span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+        <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-046a899ee7a6ec88d370211a518c9e80"
+           role="tabpanel" aria-labelledby="heading-046a899ee7a6ec88d370211a518c9e80">
+        
+        
+          
+          
+  <div class="category-post-list">
+    
+    
+  </div>
+
+          
+  
+    
+    
+    
+    <div class="category-sub row nomargin-x">
+      <a class="category-subitem collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="查找"
+        id="heading-dc5d07a1867b1c0b57153afe054d0332" role="tab" data-toggle="collapse" href="#collapse-dc5d07a1867b1c0b57153afe054d0332"
+        aria-expanded="false"
+      >
+        查找
+        <span class="list-group-count"></span>
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      
+        <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9F%A5%E6%89%BE/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-dc5d07a1867b1c0b57153afe054d0332"
+           role="tabpanel" aria-labelledby="heading-dc5d07a1867b1c0b57153afe054d0332">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2021/04/30/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" title="二分查找"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">二分查找</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+        
+      </div>
+    </div>
+  
 </div>
+
 
               </div>
             </div>
@@ -457,32 +543,30 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-    
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
   
-
   
-</footer>
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
@@ -501,10 +585,22 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -514,43 +610,22 @@
 
 
 
-  
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
