@@ -1,295 +1,277 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="dogecheng">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to R">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"doggycheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型1：Denial of Service（DoS）、User to Roo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络安全相关数据集">
 <meta property="og:url" content="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型[1]：Denial of Service（DoS）、User to R">
+<meta property="og:description" content="1. 入侵检测1.1 DARPA数据集简介 DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型1：Denial of Service（DoS）、User to Roo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605213417521.png">
 <meta property="og:image" content="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605212229333.png">
 <meta property="og:image" content="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605205632632.png">
 <meta property="article:published_time" content="2021-06-08T07:21:08.000Z">
-<meta property="article:modified_time" content="2023-10-10T06:41:23.789Z">
-<meta property="article:author" content="dogecheng">
+<meta property="article:modified_time" content="2023-10-15T13:26:38.316Z">
+<meta property="article:author" content="那少年和狗">
 <meta property="article:tag" content="网络安全">
 <meta property="article:tag" content="数据集">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605213417521.png">
-  
-  
-  
-  <title>网络安全相关数据集 - My Blog</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+<link rel="canonical" href="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/">
 
 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/","path":"2021/06/08/网络安全与机器学习/网络安全相关数据集/","title":"网络安全相关数据集"}</script>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网络安全相关数据集 | My Blog</title>
   
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"doggycheng.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
 
 
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
 
 
-<body>
-  
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
 
-  <header>
-    
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>My Blog</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">My Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">兴趣使然的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
 </nav>
 
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">1. 入侵检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-DARPA"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 DARPA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-KDD99"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 KDD99</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-NSL-KDD"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 NSL-KDD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-UNSW-NB-15"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 UNSW-NB 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-UGR%E2%80%9916"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 UGR’16</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%83%B5%E5%B0%B8%E7%BD%91%E7%BB%9C"><span class="nav-number">2.</span> <span class="nav-text">2. 僵尸网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-CTU-13"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 CTU-13</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-WEB-%E6%94%BB%E5%87%BB"><span class="nav-number">3.</span> <span class="nav-text">3. WEB 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-HTTP-CSIC-2010"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 HTTP CSIC 2010</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6-amp-%E5%9E%83%E5%9C%BE%E7%9F%AD%E4%BF%A1"><span class="nav-number">4.</span> <span class="nav-text">4. 垃圾邮件&amp;垃圾短信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-UCI-Spambase"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 UCI Spambase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-UCI-SMS-Spam"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 UCI SMS Spam</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99-amp-%E9%92%93%E9%B1%BC%E9%82%AE%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">5. 钓鱼网站&amp;钓鱼邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-UCI-Website-Phishing-Data-Set"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 UCI Website Phishing Data Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Phishing-Features-Dataset"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Phishing Features Dataset</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-DGA"><span class="nav-number">6.</span> <span class="nav-text">6. DGA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-360-DGA"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 360 DGA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%93%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">7. 数据集仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E5%8A%A0%E6%8B%BF%E5%A4%A7%E5%AE%89%E5%85%A8%E7%A0%94%E7%A9%B6%E6%89%80"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 加拿大安全研究所</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-SecRepo"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 SecRepo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-CAIDA-Data"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 CAIDA Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Security-amp-Privacy-Laboratory"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 Security &amp; Privacy Laboratory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-Jason-Trost-%E5%8D%9A%E5%AE%A2"><span class="nav-number">7.5.</span> <span class="nav-text">7.5 Jason Trost 博客</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="那少年和狗"
+      src="/images/my_avatar.png">
+  <p class="site-author-name" itemprop="name">那少年和狗</p>
+  <div class="site-description" itemprop="description">一个终生旅途跋涉的香客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
   
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner_img/chess.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="网络安全相关数据集"></span>
-          
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://doggycheng.github.io/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my_avatar.png">
+      <meta itemprop="name" content="那少年和狗">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+      <meta itemprop="description" content="一个终生旅途跋涉的香客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="网络安全相关数据集 | My Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络安全相关数据集
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-08 15:21:08" itemprop="dateCreated datePublished" datetime="2021-06-08T15:21:08+08:00">2021-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-15 21:26:38" itemprop="dateModified" datetime="2023-10-15T21:26:38+08:00">2023-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%95%B0%E6%8D%AE%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">数据集</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-06-08 15:21" pubdate>
-          2021年6月8日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          7.6k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          64 分钟
-        
-      </span>
-    
+      </header>
 
     
     
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
     
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">网络安全相关数据集</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="1-入侵检测"><a href="#1-入侵检测" class="headerlink" title="1. 入侵检测"></a>1. 入侵检测</h1><h2 id="1-1-DARPA"><a href="#1-1-DARPA" class="headerlink" title="1.1 DARPA"></a>1.1 DARPA</h2><p><strong>数据集简介</strong></p>
-<p>DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://archive.ll.mit.edu/ideval/docs/attackDB.html">[1]</span></a></sup>：Denial of Service（DoS）、User to Root（U2R）、Remote to Local（R2L）、Probes 和 Data。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="1-入侵检测"><a href="#1-入侵检测" class="headerlink" title="1. 入侵检测"></a>1. 入侵检测</h1><h2 id="1-1-DARPA"><a href="#1-1-DARPA" class="headerlink" title="1.1 DARPA"></a>1.1 DARPA</h2><p><strong>数据集简介</strong></p>
+<p>DARPA 数据集是 1998 年美国国防部高级研究计划局（Defense Advanced Research Projects Agency，DARPA）在麻省理工学院进行的一个入侵检测评估项目生成的，它包含 1998、1999、2000 这 3个数据集，包括 5 种主要的攻击类型<sup><a href="#fn_1" id="reffn_1">1</a></sup>：Denial of Service（DoS）、User to Root（U2R）、Remote to Local（R2L）、Probes 和 Data。</p>
 <p>DARPA 1998 包括审计日志数据和网络流量数据两个部分，审计日志数据使用 Sun 公司的 Basic Security Monitoring (BSM) 收集，网络流量数据使用 tcpdump 收集。数据集中每一行代表一个会话，每一个会话对应两台计算机之间单独的 TCP/IP 连接，一个 TCP 会话过程包括建立三次握手到关闭连接时最后收到的 FIN 和 ACK 数据包。每一个会话通过 5 元组唯一标识，此 5 元组即开始时间、源 IP、目的 IP、源端口、目的端口。数据集在模拟的入侵环境中收集：路由器内部网上有两个工作站，外部有一个工作站。</p>
+<span id="more"></span>
 <blockquote>
 <p>内部工作站 IP 分别为 192.168.0.20 和 192.168.0.40，BSM 在 192.168.0.20 这台工作站上运行；外部工作站 IP 为 192.168.1.30</p>
 </blockquote>
 <p>下面展示了 tcpdump 的样本及对应的特征，收集的样本仅包括内部和外部工作站之间的 TCP/IP 连接，特征包括 <code>唯一会话索引，会话开始日期，会话开始时间，会话持续时间，服务名，源端口，目的端口，源IP，目的IP，会话攻击分数和攻击名</code>，其中 <code>会话攻击分数</code> 表示这个会话是攻击的可能性，分数越高则此会话是攻击的可能性越大，训练数据会将此特征设置为 1 或 0 明确此会话是否为攻击，测试数据则会将此特征设为 0。<code>攻击名</code> 表明了此会话的攻击，具体可查阅 <a target="_blank" rel="noopener" href="https://archive.ll.mit.edu/ideval/docs/attacks.html">1998 Training Data Attack Schedule</a>。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache">   <span class="hljs-attribute">Start</span>      Start                     Src   Dest Src         Dest         Attack<br>   <span class="hljs-attribute">Date</span>       Time     Duration  Serv   Port  Port IP          IP           Score Name<br><span class="hljs-attribute">1</span>  <span class="hljs-number">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">1998</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">01</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">23</span>  ftp    <span class="hljs-number">1755</span>  <span class="hljs-number">21</span>  <span class="hljs-number">192.168.1.30</span> <span class="hljs-number">192.168.0.20</span> <span class="hljs-number">0</span>.<span class="hljs-number">31</span> -<br><span class="hljs-attribute">2</span>  <span class="hljs-number">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">1998</span> <span class="hljs-number">05</span>:<span class="hljs-number">04</span>:<span class="hljs-number">43</span> <span class="hljs-number">67</span>:<span class="hljs-number">59</span>:<span class="hljs-number">01</span>  telnet <span class="hljs-number">1042</span>  <span class="hljs-number">23</span>  <span class="hljs-number">192.168.1.30</span> <span class="hljs-number">192.168.0.20</span> <span class="hljs-number">0</span>.<span class="hljs-number">42</span> -<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   Start      Start                     Src   Dest Src         Dest         Attack</span><br><span class="line">   Date       Time     Duration  Serv   Port  Port IP          IP           Score Name</span><br><span class="line">1  01&#x2F;27&#x2F;1998 00:00:01 00:00:23  ftp    1755  21  192.168.1.30 192.168.0.20 0.31 -</span><br><span class="line">2  01&#x2F;27&#x2F;1998 05:04:43 67:59:01  telnet 1042  23  192.168.1.30 192.168.0.20 0.42 -</span><br></pre></td></tr></table></figure>
 <p>下面展示了 BSM 审计数据的样本和对应的特征，它的格式和 tcpdump 是相同的，但因为只有 1 台工作站上装了 BSM，所以 BSM 会话数会少于 tcpdump 收集到的会话数。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache">   <span class="hljs-attribute">Start</span>       Start                     Src  Dest Src          Dest        Attack<br>   <span class="hljs-attribute">Date</span>        Time     Duration Serv    Port Port IP           IP          Score Name<br><span class="hljs-attribute">1</span>  <span class="hljs-number">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">1998</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">21</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">22</span>  ftp    <span class="hljs-number">1755</span> <span class="hljs-number">21</span>  <span class="hljs-number">192.168.1.30</span> <span class="hljs-number">192.168.0.20</span> <span class="hljs-number">1</span>.<span class="hljs-number">13</span> -<br><span class="hljs-attribute">2</span>  <span class="hljs-number">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">1998</span> <span class="hljs-number">05</span>:<span class="hljs-number">05</span>:<span class="hljs-number">03</span> <span class="hljs-number">67</span>:<span class="hljs-number">59</span>:<span class="hljs-number">00</span>  telnet <span class="hljs-number">1042</span> <span class="hljs-number">23</span>  <span class="hljs-number">192.168.1.30</span> <span class="hljs-number">192.168.0.20</span> <span class="hljs-number">25</span>.<span class="hljs-number">0</span> guess<br></code></pre></td></tr></table></figure>
-<p>DARPA 1999<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span 1999 class="hint--top hint--rounded" aria-label="Lippmann, Richard, et al. " the darpa off-line intrusion detection evaluation." computer networks 34.4 (2000): 579-595.">[2]</span></a></sup>/2000<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="杨怡, 边媛, 张天桥. 基于机器学习的网络安全态势感知[J]. 计算机科学与应用, 2020, 10(12): 2431-2438.">[3]</span></a></sup> 与 DARPA 1998 相比，除新增了一些攻击之外，最大的不同在于增加了一个 Windows NT 工作站作为受害者，因此数据集还多了 Windows NT 的审计数据，没有像 DARPA 1998 那样提供了 tcpdump.list 这样已经处理好的文本文件，需要自己解析，比如想获取 Snort 的告警日志，在安装和配置好 Snort 之后，可通过执行以下命令实现：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">snort -c ./Snort/snort.conf -r ./DARPA1999/inside.tcpdump -l ./Snort/<span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   Start       Start                     Src  Dest Src          Dest        Attack</span><br><span class="line">   Date        Time     Duration Serv    Port Port IP           IP          Score Name</span><br><span class="line">1  01&#x2F;27&#x2F;1998 00:00:21 00:00:22  ftp    1755 21  192.168.1.30 192.168.0.20 1.13 -</span><br><span class="line">2  01&#x2F;27&#x2F;1998 05:05:03 67:59:00  telnet 1042 23  192.168.1.30 192.168.0.20 25.0 guess</span><br></pre></td></tr></table></figure>
+<p>DARPA 1999<sup><a href="#fn_2" id="reffn_2">2</a></sup>/2000<sup><a href="#fn_3" id="reffn_3">3</a></sup> 与 DARPA 1998 相比，除新增了一些攻击之外，最大的不同在于增加了一个 Windows NT 工作站作为受害者，因此数据集还多了 Windows NT 的审计数据，没有像 DARPA 1998 那样提供了 tcpdump.list 这样已经处理好的文本文件，需要自己解析，比如想获取 Snort 的告警日志，在安装和配置好 Snort 之后，可通过执行以下命令实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snort -c ./Snort/snort.conf -r ./DARPA1999/inside.tcpdump -l ./Snort/<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 <p>这两个数据集的相关介绍可以参考下面三篇文章：</p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36165570/article/details/104575813">DARPA2000超详细数据介绍</a></p>
@@ -306,16 +288,16 @@
 <p><a target="_blank" rel="noopener" href="https://www.ll.mit.edu/r-d/datasets/1999-darpa-intrusion-detection-evaluation-dataset">https://www.ll.mit.edu/r-d/datasets/1999-darpa-intrusion-detection-evaluation-dataset</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ll.mit.edu/r-d/datasets/2000-darpa-intrusion-detection-scenario-specific-datasets">https://www.ll.mit.edu/r-d/datasets/2000-darpa-intrusion-detection-scenario-specific-datasets</a></p>
 <h2 id="1-2-KDD99"><a href="#1-2-KDD99" class="headerlink" title="1.2 KDD99"></a>1.2 KDD99</h2><p><strong>数据集简介</strong></p>
-<p>KDD99 数据集<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="http://kdd.ics.uci.edu/databases/kddcup99/task.html">[4]</span></a></sup>基于 DARPA 1998 数据集，它对 DARPA 1998 数据集进行了特征分析和数据预处理。KDD99 将攻击分成了 4 大类，分别是 DoS、R2L、U2R 和 Probing。下面展示了 1 条 KDD99 的样本，它有 42 个字段，其中包括 41 项特征，最后 1 项是标签。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>,tcp,http,SF,<span class="hljs-number">181</span>,<span class="hljs-number">5450</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">8</span>,<span class="hljs-number">8</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">1</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">9</span>,<span class="hljs-number">9</span>,<span class="hljs-number">1</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">11</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,<span class="hljs-number">0</span>.<span class="hljs-number">00</span>,normal.<br></code></pre></td></tr></table></figure>
-<p>这 41 个特征又可以分成 3 类<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="http://kdd.ics.uci.edu/databases/kddcup99/task.html">[4]</span></a></sup>，基于 TCP 连接的基本特征、基于 TCP 连接内容的特征、基于时间的网络流量特征（这里使用 2 秒的窗口），具体内容可查阅 <a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/task.html">KDD-CUP-99 Task Description</a>。</p>
+<p>KDD99 数据集<sup><a href="#fn_4" id="reffn_4">4</a></sup>基于 DARPA 1998 数据集，它对 DARPA 1998 数据集进行了特征分析和数据预处理。KDD99 将攻击分成了 4 大类，分别是 DoS、R2L、U2R 和 Probing。下面展示了 1 条 KDD99 的样本，它有 42 个字段，其中包括 41 项特征，最后 1 项是标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0,tcp,http,SF,181,5450,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,8,8,0.00,0.00,0.00,0.00,1.00,0.00,0.00,9,9,1.00,0.00,0.11,0.00,0.00,0.00,0.00,0.00,normal.</span><br></pre></td></tr></table></figure>
+<p>这 41 个特征又可以分成 3 类<sup><a href="#fn_4" id="reffn_4">4</a></sup>，基于 TCP 连接的基本特征、基于 TCP 连接内容的特征、基于时间的网络流量特征（这里使用 2 秒的窗口），具体内容可查阅 <a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/task.html">KDD-CUP-99 Task Description</a>。</p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-05</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html</a></p>
 <h2 id="1-3-NSL-KDD"><a href="#1-3-NSL-KDD" class="headerlink" title="1.3 NSL-KDD"></a>1.3 NSL-KDD</h2><p><strong>数据集简介</strong></p>
-<p>NSL-KDD<sup id="fnref:5" class="footnote-ref"><a href="#fn:5" rel="footnote"><span class="hint--top hint--rounded" aria-label="翟明芳, 张兴明, 赵博. 基于深度学习的加密恶意流量检测研究[J]. 网络与信息安全学报, 2020, 6(03): 66-77.">[5]</span></a></sup> 数据集去除 KDD99 数据集中冗余的数据，克服了分类器偏向于重复出现的记录等问题，需要填写一些个人信息，提交表单后才能获得数据集。</p>
+<p>NSL-KDD<sup><a href="#fn_5" id="reffn_5">5</a></sup> 数据集去除 KDD99 数据集中冗余的数据，克服了分类器偏向于重复出现的记录等问题，需要填写一些个人信息，提交表单后才能获得数据集。</p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-05</p>
@@ -323,10 +305,10 @@
 <p><a target="_blank" rel="noopener" href="https://www.unb.ca/cic/datasets/nsl.html">https://www.unb.ca/cic/datasets/nsl.html</a></p>
 <h2 id="1-4-UNSW-NB-15"><a href="#1-4-UNSW-NB-15" class="headerlink" title="1.4 UNSW-NB 15"></a>1.4 UNSW-NB 15</h2><p><strong>数据集简介</strong></p>
 <p>KDD99 等数据集距离现在已经十分久远，不能反映当前的网络威胁环境，所以新南威尔士大学（The University of New South Wales）创造了此数据集。UNSW_NB15_training-set.csv 和 UNSW_NB15_testing-set.csv 是预处理过的数据集，训练集有 175341 个样本，测试集有 82332 个样本。</p>
-<p>下图给出了 UNSW-NB 15 没有预处理过的 CSV 数据集，它有 49 个字段，其中包括 2 个标签，最后两个字段分别为<code>attack_type</code> 和 <code>label</code> ，<code>attack_type</code> 用字符串的形式标识此记录的攻击类型，<code>label</code> 以 0-1 的方式标识此记录是否为攻击，攻击则此字段为 1，否则为 0，具体的每个字段的内容可以查看 UNSW-NB15_features.csv，或者阅读文献 <em>UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set)</em><sup id="fnref:6" class="footnote-ref"><a href="#fn:6" rel="footnote"><span 2015 class="hint--top hint--rounded" aria-label="Moustafa, Nour, and Jill Slay. " unsw-nb15: a comprehensive data set for network intrusion detection systems (unsw-nb15 set)." military communications and information conference (milcis). ieee, 2015.">[6]</span></a></sup>。</p>
-<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605213417521.png" srcset="/img/loading.gif" lazyload alt="image-20210605213417521" style="zoom:50%;"></p>
+<p>下图给出了 UNSW-NB 15 没有预处理过的 CSV 数据集，它有 49 个字段，其中包括 2 个标签，最后两个字段分别为<code>attack_type</code> 和 <code>label</code> ，<code>attack_type</code> 用字符串的形式标识此记录的攻击类型，<code>label</code> 以 0-1 的方式标识此记录是否为攻击，攻击则此字段为 1，否则为 0，具体的每个字段的内容可以查看 UNSW-NB15_features.csv，或者阅读文献 <em>UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set)</em><sup><a href="#fn_6" id="reffn_6">6</a></sup>。</p>
+<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605213417521.png" alt="image-20210605213417521" style="zoom:50%;"></p>
 <p>下图给出了 UNSW-NB 15 数据集的文件内容（UNSW_NB15_training-set.csv 和 UNSW_NB15_testing-set.csv），它有 45 个字段，其中包括 2 个标签，<code>attack_type</code> 和 <code>label</code> 。</p>
-<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605212229333.png" srcset="/img/loading.gif" lazyload alt="image-20210605212229333" style="zoom:50%;"></p>
+<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605212229333.png" alt="image-20210605212229333" style="zoom:50%;"></p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-05</p>
@@ -351,7 +333,7 @@
 <h1 id="3-WEB-攻击"><a href="#3-WEB-攻击" class="headerlink" title="3. WEB 攻击"></a>3. WEB 攻击</h1><h2 id="3-1-HTTP-CSIC-2010"><a href="#3-1-HTTP-CSIC-2010" class="headerlink" title="3.1 HTTP CSIC 2010"></a>3.1 HTTP CSIC 2010</h2><p><strong>数据集简介</strong></p>
 <p>CSIC 2010 西班牙国家研究委员会信息安全研究所（Consejo Superior de Investigaciones Científicas）开发，包含 36000 个正常请求和 25000 多个异常请求，包括但不限于 SQL 注入、信息收集、敏感文件泄露 和 XSS 等 WEB 攻击。</p>
 <p>下图给出了 CSIC 2010 数据集的文件内容，这是 2 个 SQL 注入的 HTTP 请求样本，CSIC 2010 的样本都是这样的 HTTP 请求，请求方法包括主要是 GET 和 POST，还有少量 PUT 请求。</p>
-<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605205632632.png" srcset="/img/loading.gif" lazyload alt="image-20210605205632632" style="zoom:50%;"></p>
+<p><img src="/2021/06/08/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E9%9B%86/image-20210605205632632.png" alt="image-20210605205632632" style="zoom:50%;"></p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-05</p>
@@ -360,7 +342,7 @@
 <h1 id="4-垃圾邮件-amp-垃圾短信"><a href="#4-垃圾邮件-amp-垃圾短信" class="headerlink" title="4. 垃圾邮件&amp;垃圾短信"></a>4. 垃圾邮件&amp;垃圾短信</h1><h2 id="4-1-UCI-Spambase"><a href="#4-1-UCI-Spambase" class="headerlink" title="4.1 UCI Spambase"></a>4.1 UCI Spambase</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校（Irvine, CA: University of California）收集的垃圾邮件数据集，它有 4601 个样本。</p>
 <p>下面是 UCI Spambase 的一个样本，它有 58 个字段，包括 57 个特征和 1 个标签，最后一列是标签，0 代表该样本不是垃圾邮件，1 代表该样本是垃圾邮件。特征的具体说明可以查阅 <a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.names">spambase.names</a>。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">32</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">64</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">32</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>.<span class="hljs-number">29</span>,<span class="hljs-number">1</span>.<span class="hljs-number">93</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">96</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">778</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>.<span class="hljs-number">756</span>,<span class="hljs-number">61</span>,<span class="hljs-number">278</span>,<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0,0.64,0.64,0,0.32,0,0,0,0,0,0,0.64,0,0,0,0.32,0,1.29,1.93,0,0.96,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.778,0,0,3.756,61,278,1</span><br></pre></td></tr></table></figure>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-05</p>
@@ -369,7 +351,7 @@
 <h2 id="4-2-UCI-SMS-Spam"><a href="#4-2-UCI-SMS-Spam" class="headerlink" title="4.2 UCI SMS Spam"></a>4.2 UCI SMS Spam</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校收集的垃圾短信数据集，它有 5574 个样本，每个样本由 2 部分组成，第 1 部分是标签，第 2 部分是短信内容。</p>
 <p>下面是此数据集的 2 个样本示例，标签和短信内容由制表符 <code>\t</code> 分隔，spam 代表这是一条垃圾短信，ham 代表这一条不是垃圾短信。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ham</span>	Ok lar... Joking wif u oni...<br><span class="hljs-attribute">spam</span>	Free entry in <span class="hljs-number">2</span> a wkly comp to win FA Cup final tkts <span class="hljs-number">21</span>st May <span class="hljs-number">2005</span>. Text FA to <span class="hljs-number">87121</span> to receive entry question(std txt rate)T&amp;C&#x27;s apply <span class="hljs-number">08452810075</span>over<span class="hljs-number">18</span>&#x27;s<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ham	Ok lar... Joking wif u oni...</span><br><span class="line">spam	Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry question(std txt rate)T&amp;C&#39;s apply 08452810075over18&#39;s</span><br></pre></td></tr></table></figure>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p> 本文最后访问数据集时间：2021-06-06</p>
@@ -378,17 +360,17 @@
 <h1 id="5-钓鱼网站-amp-钓鱼邮件"><a href="#5-钓鱼网站-amp-钓鱼邮件" class="headerlink" title="5. 钓鱼网站&amp;钓鱼邮件"></a>5. 钓鱼网站&amp;钓鱼邮件</h1><h2 id="5-1-UCI-Website-Phishing-Data-Set"><a href="#5-1-UCI-Website-Phishing-Data-Set" class="headerlink" title="5.1 UCI Website Phishing Data Set"></a>5.1 UCI Website Phishing Data Set</h2><p><strong>数据集简介</strong></p>
 <p>加州大学尔湾分校收集的钓鱼网站数据集，它有 1353 个样本。</p>
 <p>下面是此数据集的 2 个样本示例，它有 10 个字段，其中包括 9 个特征和 1 个标签。最后一个字段代表标签，它有 3 个可取值 <code>&#123;1,0,-1&#125;</code>，1 代表合法，0 代表可疑，说明它可能是钓鱼网站，也可能不是钓鱼网站，-1 代表钓鱼网站。</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit">1,<span class="hljs-string">-1</span>,1,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,1,1,1,0,0<br><span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,<span class="hljs-string">-1</span>,0,1,1,1,1<br></code></pre></td></tr></table></figure>
-<p>这 9 个特征分别是 <code>SFH, popUpWidnow, SSLfinal_State, Request_URL, URL_of_Anchor, web_traffic, URL_Length, age_of_domain 和 having_IP_Address</code> ，特征的具体含义和取值算法阅读文献 <em>Phishing Detection based Associative Classification Data Mining</em>，比如 SFH 是 Server Form Handler 的缩写<sup id="fnref:7" class="footnote-ref"><a href="#fn:7" rel="footnote"><span class="hint--top hint--rounded" aria-label="Abdelhamid, Neda, Aladdin Ayesh, and Fadi Thabtah. " phishing detection based associative classification data mining." *expert systems with applications* 41.13 (2014): 5948-5959.">[7]</span></a></sup>，URL_Length 就是 URL 的长度，如果长度小于 54 则为 1，代表合法网站，长度在 <code>[54,74]</code> 之间代表可疑网站，长度大于 74 则代表是钓鱼网站，取值为 -1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1,-1,1,-1,-1,1,1,1,0,0</span><br><span class="line">-1,-1,-1,-1,-1,0,1,1,1,1</span><br></pre></td></tr></table></figure>
+<p>这 9 个特征分别是 <code>SFH, popUpWidnow, SSLfinal_State, Request_URL, URL_of_Anchor, web_traffic, URL_Length, age_of_domain 和 having_IP_Address</code> ，特征的具体含义和取值算法阅读文献 <em>Phishing Detection based Associative Classification Data Mining</em>，比如 SFH 是 Server Form Handler 的缩写<sup><a href="#fn_7" id="reffn_7">7</a></sup>，URL_Length 就是 URL 的长度，如果长度小于 54 则为 1，代表合法网站，长度在 <code>[54,74]</code> 之间代表可疑网站，长度大于 74 则代表是钓鱼网站，取值为 -1。</p>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p> 本文最后访问数据集时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/Website+Phishing">https://archive.ics.uci.edu/ml/datasets/Website+Phishing</a></p>
 <h2 id="5-2-Phishing-Features-Dataset"><a href="#5-2-Phishing-Features-Dataset" class="headerlink" title="5.2 Phishing Features Dataset"></a>5.2 Phishing Features Dataset</h2><p><strong>数据集简介</strong></p>
-<p>马来西亚砂拉越大学计算机科学与信息技术学院<sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span 484 class="hint--top hint--rounded" aria-label="Chiew, Kang Leng, et al. " a new hybrid ensemble feature selection framework for machine learning-based phishing detection system." *information sciences* (2019): 153-166.">[8]</span></a></sup>制作的一个数据集，数据集从 2015 年 1 月至 2017 年 5 月收集了钓鱼网页和合法网页， 5000 个钓鱼网页和 5000 个合法网页，从 PhishTank 和 OpenPhish 的 URL 中选择了 5000 个钓鱼网页，还有 5000 个来自 Alexa 和 Common Crawl 存档的合法网页的 URL。</p>
+<p>马来西亚砂拉越大学计算机科学与信息技术学院<sup><a href="#fn_8" id="reffn_8">8</a></sup>制作的一个数据集，数据集从 2015 年 1 月至 2017 年 5 月收集了钓鱼网页和合法网页， 5000 个钓鱼网页和 5000 个合法网页，从 PhishTank 和 OpenPhish 的 URL 中选择了 5000 个钓鱼网页，还有 5000 个来自 Alexa 和 Common Crawl 存档的合法网页的 URL。</p>
 <p>下面是此数据集的样本示例，包括 49 个字段，其中 48 项是特征，最后 1 项是标签。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">72</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">21</span>,<span class="hljs-number">44</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">0000000000</span>,<span class="hljs-number">0</span>.<span class="hljs-number">2500000000</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>.<span class="hljs-number">0000000000</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3,1,5,72,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,21,44,0,0,0,0,0.0000000000,0.2500000000,1,1,0,0,0,0.0000000000,0,0,0,0,0,0,0,1,1,0,1,1,-1,1,1</span><br></pre></td></tr></table></figure>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p> 本文最后访问数据集时间：2021-06-06</p>
@@ -397,7 +379,7 @@
 <h1 id="6-DGA"><a href="#6-DGA" class="headerlink" title="6. DGA"></a>6. DGA</h1><h2 id="6-1-360-DGA"><a href="#6-1-360-DGA" class="headerlink" title="6.1 360 DGA"></a>6.1 360 DGA</h2><p><strong>数据集简介</strong></p>
 <p>360 提供的 DGA 数据集，全是恶意样本。</p>
 <p>下面是此数据集的样本示例，包括 4 个字段，分别是 <code>所属DGA家族,域名,有效的开始时间,有效的结束时间</code>。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nymaim</span>	uvegpylvsj.net	<span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">08</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>	<span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">08</span> <span class="hljs-number">23</span>:<span class="hljs-number">59</span>:<span class="hljs-number">59</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nymaim	uvegpylvsj.net	2021-06-08 00:00:00	2021-06-08 23:59:59</span><br></pre></td></tr></table></figure>
 <p><strong>数据集获取</strong></p>
 <blockquote>
 <p>本文最后访问数据集时间：2021-06-08</p>
@@ -425,445 +407,121 @@
 <p>本文最后访问页面时间：2021-06-06</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://www.covert.io/data-links/">http://www.covert.io/data-links/</a></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://archive.ll.mit.edu/ideval/docs/attackDB.html">https://archive.ll.mit.edu/ideval/docs/attackDB.html</a>
-<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>Lippmann, Richard, et al. “The 1999 DARPA off-line intrusion detection evaluation.” Computer networks 34.4 (2000): 579-595.
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>杨怡, 边媛, 张天桥. 基于机器学习的网络安全态势感知[J]. 计算机科学与应用, 2020, 10(12): 2431-2438.
-<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/task.html">http://kdd.ics.uci.edu/databases/kddcup99/task.html</a>
-<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span>翟明芳, 张兴明, 赵博. 基于深度学习的加密恶意流量检测研究[J]. 网络与信息安全学报, 2020, 6(03): 66-77.
-<a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:6" class="footnote-text"><span>Moustafa, Nour, and Jill Slay. “UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set).” 2015 military communications and information systems conference (MilCIS). IEEE, 2015.
-<a href="#fnref:6" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:7" class="footnote-text"><span>Abdelhamid, Neda, Aladdin Ayesh, and Fadi Thabtah. “Phishing detection based associative classification data mining.” <em>Expert Systems with Applications</em> 41.13 (2014): 5948-5959.
-<a href="#fnref:7" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:8" class="footnote-text"><span>Chiew, Kang Leng, et al. “A new hybrid ensemble feature selection framework for machine learning-based phishing detection system.” <em>Information Sciences</em> 484 (2019): 153-166.
-<a href="#fnref:8" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="category-chain-item">网络安全</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="category-chain-item">数据集</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote id="fn_1">
+<sup>1</sup>. <a target="_blank" rel="noopener" href="https://archive.ll.mit.edu/ideval/docs/attackDB.html">https://archive.ll.mit.edu/ideval/docs/attackDB.html</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. Lippmann, Richard, et al. “The 1999 DARPA off-line intrusion detection evaluation.” Computer networks 34.4 (2000): 579-595.<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. 杨怡, 边媛, 张天桥. 基于机器学习的网络安全态势感知[J]. 计算机科学与应用, 2020, 10(12): 2431-2438.<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. <a target="_blank" rel="noopener" href="http://kdd.ics.uci.edu/databases/kddcup99/task.html">http://kdd.ics.uci.edu/databases/kddcup99/task.html</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. 翟明芳, 张兴明, 赵博. 基于深度学习的加密恶意流量检测研究[J]. 网络与信息安全学报, 2020, 6(03): 66-77.<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_6">
+<sup>6</sup>. Moustafa, Nour, and Jill Slay. “UNSW-NB15: a comprehensive data set for network intrusion detection systems (UNSW-NB15 network data set).” 2015 military communications and information systems conference (MilCIS). IEEE, 2015.<a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_7">
+<sup>7</sup>. Abdelhamid, Neda, Aladdin Ayesh, and Fadi Thabtah. “Phishing detection based associative classification data mining.” <em>Expert Systems with Applications</em> 41.13 (2014): 5948-5959.<a href="#reffn_7" title="Jump back to footnote [7] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_8">
+<sup>8</sup>. Chiew, Kang Leng, et al. “A new hybrid ensemble feature selection framework for machine learning-based phishing detection system.” <em>Information Sciences</em> 484 (2019): 153-166.<a href="#reffn_8" title="Jump back to footnote [8] in the text."> &#8617;</a>
+</blockquote>
 
     </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="print-no-link">#网络安全</a>
-      
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="print-no-link">#数据集</a>
-      
-    </div>
-  
-</div>
 
+    
+    
+    
 
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>网络安全相关数据集</div>
-      <div>https://doggycheng.github.io/2021/06/08/网络安全与机器学习/网络安全相关数据集/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>dogecheng</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2021年6月8日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
-                    <i class="iconfont icon-sa"></i>
-                  </span>
-                </a>
-              
-            
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag"># 网络安全</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag"># 数据集</a>
           </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
 
+        
 
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" title="5. 最长回文子串">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5. 最长回文子串</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/05/31/LeetCode/4.%20%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="4. 寻找两个正序数组的中位数">
-                        <span class="hidden-mobile">4. 寻找两个正序数组的中位数</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/31/LeetCode/4.%20%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" rel="prev" title="4. 寻找两个正序数组的中位数">
+                  <i class="fa fa-angle-left"></i> 4. 寻找两个正序数组的中位数
+                </a>
             </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/25/LeetCode/5.%20%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" rel="next" title="5. 最长回文子串">
+                  5. 最长回文子串 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
 </div>
 
 
 
 
 
-  
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
 </div>
-
-    
-
-    
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
 
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">那少年和狗</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
   </footer>
 
-  <!-- Scripts -->
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
   
 
 
 
 
   
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
 
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
 </html>
